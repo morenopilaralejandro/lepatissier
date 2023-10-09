@@ -2,19 +2,18 @@
 /*
 <?=$str?>
 */
-    $strWebName="Cast2u";
-    $strKeyWords="wiiu web app application";  
-    $strDescription="Play videos on your console";
+    $strWebName = "Cast2u";
+    $strKeyWords = "wiiu web app application";  
     $strAuthor="Alejandro Moreno";
 
-    $strTitle00="Now loading - ".$strWebName;
-    $strTitle0=$strWebName;
-    $strTitle1="Ready to watch - ".$strWebName;
+    $strTitle1="strTitle1";
     $strTitle2="Manage your videos - ".$strWebName;
     $strTitle3="Edit video - ".$strWebName;
     $strTitle4="Settings - ".$strWebName;
     $strTitle5="Login - ".$strWebName;
     $strTitle6="Registrer - ".$strWebName;
+
+    $strDesc1= "strDesc1";
     
     $strIndex1="Cast videos to your console";
     $strIndex2="Store video URL to watch them later";
