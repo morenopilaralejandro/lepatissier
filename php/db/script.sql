@@ -2,6 +2,15 @@ drop table if exists prodalle;
 drop table if exists alle;
 drop table if exists prod;
 drop table if exists cat;
+drop table if exists contact;
+
+create table contact (
+    contact_id int not null auto_increment,
+    contact_name varchar(32),
+    contact_email varchar(32),
+    contact_msg varchar(2000),
+	constraint contact_pk primary key (contact_id)
+);
 
 create table cat (
     cat_id int not null auto_increment,

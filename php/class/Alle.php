@@ -76,7 +76,7 @@ class Alle {
         return $this->alleId; 
     }
 
-    public function setAlleNameEn(string $alleNameEn): void {
+    public function setAlleNameEn(string $alleNameEn): bool {
         $this->alleNameEn = $alleNameEn; 
 
         $sql = "update alle set alle_name_en=? where alle_id=?;";
@@ -91,7 +91,7 @@ class Alle {
         return $this->alleNameEn; 
     }
 
-    public function setAlleNameEs(string $alleNameEs): void {
+    public function setAlleNameEs(string $alleNameEs): bool {
         $this->alleNameEs = $alleNameEs; 
 
         $sql = "update alle set alle_name_es=? where alle_id=?;";

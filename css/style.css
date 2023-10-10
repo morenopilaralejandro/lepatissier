@@ -1,0 +1,27 @@
+:root {
+    --bg-color-main: #fff2e6;
+    --bg-color-white: white;
+    --text-color-white: white;
+    --text-color-black: black;
+
+    background-color: var(--bg-color-main);
+    
+}
+
+body {
+    background-color: var(--bg-color-main);
+}
+
+header, footer {
+    background-color: var(--bg-color-white);
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.logo-text {
+    margin-left: 20px;
+}

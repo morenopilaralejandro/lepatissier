@@ -7,7 +7,7 @@ class Manager {
     //constructor
     public function __construct() {
         $auxLangCode = $_SERVER['HTTP_ACCEPT_LANGUAGE'];
-        $auxLangCode = substr($langCode, 0, 2);
+        $auxLangCode = substr($auxLangCode, 0, 2);
         $defaultLangCode = 'en';
         switch($auxLangCode) {
             case 'en':

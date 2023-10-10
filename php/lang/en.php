@@ -2,24 +2,21 @@
 /*
 <?=$str?>
 */
-    $strWebName = "Cast2u";
-    $strKeyWords = "wiiu web app application";  
-    $strAuthor="Alejandro Moreno";
+    $strWebName = "Le Patissier";
+    $strKeywords = "waffle, ice cream";  
+    $strAuthor = "Alejandro Moreno";
 
-    $strTitle1="strTitle1";
-    $strTitle2="Manage your videos - ".$strWebName;
-    $strTitle3="Edit video - ".$strWebName;
-    $strTitle4="Settings - ".$strWebName;
-    $strTitle5="Login - ".$strWebName;
-    $strTitle6="Registrer - ".$strWebName;
+    $strTitle1 = $strWebName;
+    $strTitle2 = "strTitle2";
 
-    $strDesc1= "strDesc1";
+    $strDesc1 = "strDesc1";
     
     $strIndex1="Cast videos to your console";
     $strIndex2="Store video URL to watch them later";
 
-    $strNav1="Settings";
-    $strNav2="Log Out";
+    $strNav1="Menu";
+    $strNav2="About Us";
+    $strNav3="Contact";
 
     $strBtn1="Manage";
     $strBtn2="Watch";
