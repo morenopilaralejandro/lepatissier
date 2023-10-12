@@ -11,8 +11,8 @@
 
     $strDesc1 = "strDesc1";
     
-    $strIndex1="Cast videos to your console";
-    $strIndex2="Store video URL to watch them later";
+    $strIndex1="strIndex1";
+    $strIndex2="strIndex2";
 
     $strNav1="Menu";
     $strNav2="About Us";

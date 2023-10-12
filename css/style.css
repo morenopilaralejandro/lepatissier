@@ -16,12 +16,40 @@ header, footer {
     background-color: var(--bg-color-white);
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+header {
+    padding: 5px;
 }
+
+header .nav-item {
+
+}
+
+.header-desktop {
+    display: none;
+}
+
+
+.header-responsive {
+    display: contents;
+}
+
 
 .logo-text {
     margin-left: 20px;
+}
+
+/*tablet*/
+@media only screen and (min-width: 600px) {
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 768px) {
+    .header-desktop {
+        display: contents;
+    }
+
+    .header-responsive {
+        display: none;
+    }
 }

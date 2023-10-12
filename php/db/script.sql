@@ -9,6 +9,7 @@ create table contact (
     contact_name varchar(32),
     contact_email varchar(32),
     contact_msg varchar(2000),
+    contact_date timestamp,  
 	constraint contact_pk primary key (contact_id)
 );
 

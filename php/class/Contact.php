@@ -5,6 +5,7 @@ class Contact {
     private string $contactName;
     private string $contactEmail;
     private string $contactMsg;
+    private string $contactDate;
 
     //db
     public function getContactByContactId(int $contactId): mysqli_result {
@@ -38,10 +39,10 @@ class Contact {
     }
 
     public function insert(int $contactId, string $contactName, 
-        string $contactEmail, string $contactMsg): bool {
+        string $contactEmail, string $contactMsg, string $contactDate): bool {
 
         $sql = "insert into contact (contact_name, contact_email, contact_msg) 
-            values (?, ?, ?);";
+            values (?, ?, ?, now());";
 
         $con = new DbConnection();
         $link = $con->getConnection();
@@ -64,17 +65,18 @@ class Contact {
 
     //constructor
     public function __construct(int $contactId, string $contactName, 
-        string $contactEmail, string $contactMsg) {
+        string $contactEmail, string $contactMsg, string $contactDate) {
 
         $this->contactId = $contactId;
         $this->contactName = $contactName;
         $this->contactEmail = $contactEmail;
         $this->contactMsg = $contactMsg;
+        $this->contactDate = $contactDate;
     }
 
     //factory
     public static function factory() : Contact {
-        return new Contact(0, '', '', '');
+        return new Contact(0, '', '', '', '');
     }
 
     //setter getter
@@ -93,7 +95,7 @@ class Contact {
         return $this->contactId; 
     }
 
-    public function setContactName($contactName) { 
+    public function setContactName(string $contactName): bool { 
         $this->contactName = $contactName; 
 
         $sql = "update contact set contact_name=? where contact_id=?;";
@@ -104,11 +106,11 @@ class Contact {
         $stmt->bind_param("si", $contactName, $this->contactId);
         return $stmt->execute();
     }
-    public function getContactName() { 
+    public function getContactName(): string { 
         return $this->contactName; 
     }
 
-    public function setContactEmail($contactEmail) { 
+    public function setContactEmail(string $contactEmail): bool { 
         $this->contactEmail = $contactEmail; 
 
         $sql = "update contact set contact_email=? where contact_id=?;";
@@ -119,11 +121,11 @@ class Contact {
         $stmt->bind_param("si", $contactEmail, $this->contactId);
         return $stmt->execute();
     }
-    public function getContactEmail() { 
+    public function getContactEmail(): string { 
         return $this->contactEmail; 
     }
 
-    public function setContactMsg($contactMsg) { 
+    public function setContactMsg(string $contactMsg): bool { 
         $this->contactMsg = $contactMsg; 
 
         $sql = "update contact set contact_msg=? where contact_id=?;";
@@ -134,8 +136,23 @@ class Contact {
         $stmt->bind_param("si", $contactMsg, $this->contactId);
         return $stmt->execute();
     }
-    public function getContactMsg() { 
+    public function getContactMsg(): string { 
         return $this->contactMsg; 
+    }
+
+    public function setContactDate(string $contactDate): bool { 
+        $this->contactDate = $contactDate; 
+
+        $sql = "update contact set contact_date=? where contact_id=?;";
+        $con = new DbConnection();
+        $link = $con->getConnection();
+
+        $stmt = $link->prepare($sql);
+        $stmt->bind_param("si", $contactDate, $this->contactId);
+        return $stmt->execute();
+    }
+    public function getContactDate(): string { 
+        return $this->contactDate; 
     }
 }
 ?>
