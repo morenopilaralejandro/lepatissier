@@ -31,7 +31,7 @@
             rel="stylesheet" 
             integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
             crossorigin="anonymous">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="<?=$path?>css/style.css">
     </head>
     <body>
         <header class="border-bottom mb-3">
@@ -45,6 +45,11 @@
         <div class="container mb-3">
             <h1><?=$strIndex1?></h1>
             <p><?=$strIndex2?></p>
+            <div class="text-center">
+                <a class="btn btn-primary btn-lg mx-auto" href="view/menu.php" role="button">
+                    <?=$strBtn1?>
+                </a>
+            </div>
         </div>
 
         <footer class="py-3 border-top"><?=$webComp->getFooter()?></footer>
