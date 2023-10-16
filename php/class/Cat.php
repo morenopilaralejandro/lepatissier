@@ -5,6 +5,23 @@ class Cat {
     private string $catNameEn;
     private string $catNameEs;
 
+    //function
+    public function getCatNameByLangCode(string $langCode): string {
+        $catName = "";        
+        switch($langCode) {
+            case 'en':
+                $catName = $this->catNameEn;
+                break;
+            case 'es':
+                $catName = $this->catNameEs;
+                break;
+            default: 
+                $catName = $this->catNameEn;
+                break;    
+        }
+        return $catName;
+    }
+
     //db
     public function getCatByCatId(int $catId): mysqli_result {
         $sql = "select cat_id as catId, cat_name_en as catNameEn, 

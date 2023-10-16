@@ -9,6 +9,39 @@ class Prod {
     private float $prodPrice;
     private int $catId;
 
+    //function
+    public function getProdNameByLangCode(string $langCode): string {
+        $prodName = "";        
+        switch($langCode) {
+            case 'en':
+                $prodName = $this->prodNameEn;
+                break;
+            case 'es':
+                $prodName = $this->prodNameEs;
+                break;
+            default: 
+                $prodName = $this->prodNameEn;
+                break;    
+        }
+        return $prodName;
+    }
+
+    public function getProdDescByLangCode(string $langCode): string {
+        $prodDesc = "";        
+        switch($langCode) {
+            case 'en':
+                $prodDesc = $this->prodDescEn;
+                break;
+            case 'es':
+                $prodDesc = $this->prodDescEs;
+                break;
+            default: 
+                $prodDesc = $this->prodDescEn;
+                break;    
+        }
+        return $prodDesc;
+    }
+
     //db
     public function getProdByProdId(int $prodId): mysqli_result {
         $sql = "select prod_id as prodId, prod_name_en as prodNameEn, 

@@ -53,17 +53,7 @@
 
         <?php
             foreach($catArr as $c) {
-                switch($langCode) {
-                    case 'en':
-                        $catName = $c->getCatNameEn();
-                        break;
-                    case 'es':
-                        $catName = $c->getCatNameEn();;
-                        break;
-                    default: 
-                        $catName = $c->getCatNameEn();
-                        break;    
-                }
+                $catName = $c->getCatNameByLangCode($langCode);
                 
                 $prodObj = Prod::factory();
                 $prodResult = $prodObj->getProdByCatId($c->getCatId());
@@ -85,33 +75,22 @@
 
                 echo "<div class='container mb-3'>";
                     echo "<h2>{$catName}</h2>";
-                    foreach($prodArr as $p) {
-                        switch($langCode) {
-                            case 'en':
-                                $prodName = $p->getProdNameEn();
-                                $prodDesc = $p->getProdDescEn();
-                                break;
-                            case 'es':
-                                $prodName = $p->getProdNameEs();
-                                $prodDesc = $p->getProdDescEs();
-                                break;
-                            default: 
-                                $prodName = $p->getProdNameEn();
-                                $prodDesc = $p->getProdDescEn();
-                                break;    
+                    echo "<div class='prod justify-content-start'>";
+                        foreach($prodArr as $p) {
+                            $prodName = $p->getProdNameByLangCode($langCode);
+                            $prodDesc = $p->getProdDescByLangCode($langCode);
+                            echo "<a href='{$path}/view/item.php?id={$p->getProdId()}' 
+                                class='card text-muted text-decoration-none' 
+                                style='width: 18rem;'>";
+                                echo "<img class='card-img-top' 
+                                    src='{$path}img/products/default.png' 
+                                    alt='{$prodName}'>";
+                                echo "<div class='card-body'>";
+                                    echo "<h5 class='card-title'>{$prodName}</h5>";
+                                echo "</div>";
+                            echo "</a>";
                         }
-
-                        echo "<a href='{$path}/view/item.php?id={$p->getProdId()}' 
-                            class='card prod text-muted text-decoration-none' 
-                            style='width: 18rem;'>";
-                            echo "<img class='card-img-top' 
-                                src='{$path}img/products/default.png' 
-                                alt='{$prodName}'>";
-                            echo "<div class='card-body'>";
-                                echo "<h5 class='card-title'>{$prodName}</h5>";
-                            echo "</div>";
-                        echo "</a>";
-                    }
+                    echo "</div>";
                 echo "</div>";
             }
         ?>

@@ -38,7 +38,15 @@ header .nav-item {
     margin-left: 20px;
 }
 
-.card.prod img {
+.prod .card {
+    margin-bottom: 10px;
+}
+
+.prod .card + .card{
+    margin-left: 20px;
+}
+
+.prod .card img {
     max-width: 1080px;
     max-height: 720px;
 
@@ -47,7 +55,9 @@ header .nav-item {
 
 /*tablet*/
 @media only screen and (min-width: 600px) {
-
+    .prod {
+        display: flex;
+    }
 }
 
 /*Desktop*/
@@ -58,5 +68,9 @@ header .nav-item {
 
     .header-responsive {
         display: none;
+    }
+
+    .prod {
+        display: flex;
     }
 }
