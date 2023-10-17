@@ -27,9 +27,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta name="keywords" content="<?=$strKeywords?>">
-	    <meta name="description" content="<?=$strDesc1?>">
+	    <meta name="description" content="<?=$strDesc2?>">
 	    <meta name="author" content="<?=$strAuthor?>">
-        <title><?=$strTitle1?></title>
+        <title><?=$strTitle2?></title>
 
 	    <link rel="apple-touch-icon" sizes="180x180" 
             href="<?=$path?>img/favicon/apple-touch-icon.png">
@@ -77,9 +77,10 @@
                     echo "<h2>{$catName}</h2>";
                     echo "<div class='prod justify-content-start'>";
                         foreach($prodArr as $p) {
+                            $prodId = $p->getProdId();
                             $prodName = $p->getProdNameByLangCode($langCode);
                             $prodDesc = $p->getProdDescByLangCode($langCode);
-                            echo "<a href='{$path}/view/item.php?id={$p->getProdId()}' 
+                            echo "<a href='{$path}view/detail.php?id={$prodId}' 
                                 class='card text-muted text-decoration-none' 
                                 style='width: 18rem;'>";
                                 echo "<img class='card-img-top' 

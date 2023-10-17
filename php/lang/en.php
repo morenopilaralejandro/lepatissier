@@ -8,9 +8,11 @@
 
     $strTitle1 = $strWebName;
     $strTitle2 = "strTitle2";
+    $strTitle3 = "strTitle3";
 
     $strDesc1 = "strDesc1";
     $strDesc2 = "strDesc2";
+    $strDesc3 = "strDesc3";
     
     $strNav1="Menu";
     $strNav2="About Us";
