@@ -53,7 +53,7 @@ class Prod {
         $link = $con->getConnection();
 
         $stmt = $link->prepare($sql);
-        $stmt->bind_param("i", $ProdId);
+        $stmt->bind_param("i", $prodId);
         $stmt->execute();
         $result = $stmt->get_result();
         return $result;

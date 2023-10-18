@@ -5,6 +5,23 @@ class Alle {
     private string $alleNameEn;
     private string $alleNameEs;
 
+    //function
+    public function getAlleNameByLangCode(string $langCode): string {
+        $alleName = "";        
+        switch($langCode) {
+            case 'en':
+                $alleName = $this->alleNameEn;
+                break;
+            case 'es':
+                $alleName = $this->alleNameEs;
+                break;
+            default: 
+                $alleName = $this->alleNameEn;
+                break;    
+        }
+        return $alleName;
+    }
+
     //db
     public function getAlleByProdId(int $prodId): mysqli_result {
         $sql = "select a.alle_id as alleId, a.alle_name_en as alleNameEn, 

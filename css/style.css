@@ -12,6 +12,7 @@ body {
     background-color: var(--bg-color-main);
 }
 
+/*header*/
 header, footer {
     background-color: var(--bg-color-white);
 }
@@ -38,6 +39,16 @@ header .nav-item {
     margin-left: 20px;
 }
 
+/*footer*/
+footer.customFooter {
+    position: static;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+/*prod*/
 .prod .card {
     margin-bottom: 10px;
 }
@@ -49,19 +60,36 @@ header .nav-item {
 .prod .card img {
     max-width: 1080px;
     max-height: 720px;
-
 }
 
+/*detail*/
+.detailPrice {
+    font-weight: bold;
+    font-size: 40px;
+    font-style: italic;
+    color: #856782;
+}
 
 /*tablet*/
 @media only screen and (min-width: 600px) {
+    /*prod-tablet*/
     .prod {
         display: flex;
     }
+
+    /*detail-tablet*/
+    .detail {
+        display: flex;
+    }
+
+    .detailImg {
+        max-width: 30%;
+    }
 }
 
-/*Desktop*/
+/*desktop*/
 @media only screen and (min-width: 768px) {
+    /*header-desk*/
     .header-desktop {
         display: contents;
     }
@@ -70,7 +98,23 @@ header .nav-item {
         display: none;
     }
 
+    /*footer-desk*/
+    footer.customFooter {
+        position: fixed;
+    }
+
+    /*prod-desk*/
     .prod {
         display: flex;
+    }
+
+    /*detail-desk*/
+    .detail {
+        display: flex;
+    }
+
+    .detailImg {
+        margin-right: 30px;
+        max-width: 30%;
     }
 }
