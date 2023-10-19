@@ -22,6 +22,7 @@
     $strIndex2="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur sed dapibus risus. Pellentesque porta semper tortor vel rutrum. In ornare mauris vel finibus volutpat. Aliquam volutpat pulvinar nibh at sodales. Fusce euismod nisl in aliquam vehicula. Donec in faucibus massa. Nulla vitae sem vel odio fermentum tempor. Quisque aliquam erat metus, nec efficitur nulla gravida eu. Ut hendrerit fermentum nulla, ac feugiat justo ultrices ac. Nullam commodo, est ac fringilla interdum, nisl sapien efficitur tortor, sed tincidunt neque mi nec nisi.";
 
     $strMenu1="Lorem ipsum";
+    $strMenu2="€";
 
     $strDetail1="Allergens: ";
     $strDetail2=" and ";

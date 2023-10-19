@@ -53,10 +53,6 @@ footer.customFooter {
     margin-bottom: 10px;
 }
 
-.prod .card + .card{
-    margin-left: 20px;
-}
-
 .prod .card img {
     max-width: 1080px;
     max-height: 720px;
@@ -68,6 +64,18 @@ footer.customFooter {
     font-size: 40px;
     font-style: italic;
     color: #856782;
+}
+
+/*qr*/
+.qr {
+
+}
+.qr div{
+    padding: 5px;
+}
+.qr img {
+    max-width: 100px;
+    max-height: 100px;
 }
 
 /*tablet*/
@@ -106,6 +114,9 @@ footer.customFooter {
     /*prod-desk*/
     .prod {
         display: flex;
+    }
+    .prod .card + .card{
+        margin-left: 20px;
     }
 
     /*detail-desk*/

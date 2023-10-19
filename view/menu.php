@@ -2,6 +2,7 @@
     require_once __DIR__ . '/../php/Manager.php';
     require_once __DIR__ . '/../php/WebComp.php';
     require_once __DIR__ . '/../php/class/Cat.php';
+    require_once __DIR__ . '/../php/class/Prod.php';
 
     $man = new Manager();
     $langCode = $man->getLangCode();
