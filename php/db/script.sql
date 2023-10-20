@@ -4,13 +4,22 @@ drop table if exists prod;
 drop table if exists cat;
 drop table if exists contact;
 
+create table cntcstate (
+    cntcstate_id int not null auto_increment,
+    cntcstate_name varchar(32),
+	constraint cntcstate_pk primary key (cntcstate_id)
+);
+
 create table contact (
     contact_id int not null auto_increment,
     contact_name varchar(32),
     contact_email varchar(32),
     contact_msg varchar(2000),
-    contact_date timestamp,  
-	constraint contact_pk primary key (contact_id)
+    contact_date timestamp,
+    cntcstate_id int,
+	constraint contact_pk primary key (contact_id),
+    constraint contact_cntcstate_fk foreign key (cntcstate_id) 
+        references cntcstate(cntcstate_id) on delete cascade
 );
 
 create table cat (
@@ -46,6 +55,16 @@ create table prodalle (
     constraint prodalle_fk_alle foreign key (alle_id) 
         references alle(alle_id) on delete cascade
 );
+
+insert into cntcstate values (1, 'delivered');
+insert into cntcstate values (2, 'opened');
+insert into cntcstate values (3, 'clicked');
+insert into cntcstate values (4, 'unsubscribed');
+insert into cntcstate values (5, 'spam');
+insert into cntcstate values (6, 'bounced');
+insert into cntcstate values (7, 'blocked');
+insert into cntcstate values (8, 'retrying');
+
 
 insert into cat values (1, 'en1', 'es1');
 insert into cat values (2, 'en2', 'es2');

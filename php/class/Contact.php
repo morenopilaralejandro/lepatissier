@@ -6,6 +6,7 @@ class Contact {
     private string $contactEmail;
     private string $contactMsg;
     private string $contactDate;
+    private string $cntcStateId;
 
     //db
     public function getContactByContactId(int $contactId): mysqli_result {
@@ -39,16 +40,18 @@ class Contact {
     }
 
     public function insert(int $contactId, string $contactName, 
-        string $contactEmail, string $contactMsg, string $contactDate): bool {
+        string $contactEmail, string $contactMsg, string $contactDate, 
+        string $cntcStateId): bool {
 
         $sql = "insert into contact (contact_name, contact_email, contact_msg) 
-            values (?, ?, ?, now());";
+            values (?, ?, ?, now(), ?);";
 
         $con = new DbConnection();
         $link = $con->getConnection();
 
         $stmt = $link->prepare($sql);
-        $stmt->bind_param("sss", $contactName, $contactEmail, $contactMsg);
+        $stmt->bind_param("sss", $contactName, $contactEmail, 
+            $contactMsg, $cntcStateId);
         return $stmt->execute();
     }
 
@@ -65,18 +68,20 @@ class Contact {
 
     //constructor
     public function __construct(int $contactId, string $contactName, 
-        string $contactEmail, string $contactMsg, string $contactDate) {
+        string $contactEmail, string $contactMsg, string $contactDate, 
+        string $cntcStateId) {
 
         $this->contactId = $contactId;
         $this->contactName = $contactName;
         $this->contactEmail = $contactEmail;
         $this->contactMsg = $contactMsg;
         $this->contactDate = $contactDate;
+        $this->cntcStateId = $cntcStateId;
     }
 
     //factory
     public static function factory() : Contact {
-        return new Contact(0, '', '', '', '');
+        return new Contact(0, '', '', '', '', '');
     }
 
     //setter getter
@@ -153,6 +158,21 @@ class Contact {
     }
     public function getContactDate(): string { 
         return $this->contactDate; 
+    }
+
+    public function setCntcStateId(int $cntcStateId): bool { 
+        $this->cntcStateId = $cntcStateId; 
+
+        $sql = "update contact set cntcstate_id=? where contact_id=?;";
+        $con = new DbConnection();
+        $link = $con->getConnection();
+
+        $stmt = $link->prepare($sql);
+        $stmt->bind_param("ii", $cntcStateId, $this->contactId);
+        return $stmt->execute();
+    }
+    public function getCntcStateId(): int { 
+        return $this->cntcStateId; 
     }
 }
 ?>
