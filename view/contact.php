@@ -41,11 +41,34 @@
         </header>
 
         <div class="container mb-3">
+            <h1><?=$strContact1?></h1>
+            <form class="contactForm" action="#" method="post" 
+                enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="contactName"><?=$strContact2?></label>
+                    <input type="text" class="form-control" 
+                        id="contactName" maxlength="32">
+                </div>
 
+                <div class="form-group">
+                    <label for="contactEmail"><?=$strContact3?></label>
+                    <input type="email" class="form-control" 
+                        id="contactEmail" maxlength="32">
+                </div>
+
+                <div class="form-group">
+                    <label for="contactMsg"><?=$strContact4?></label>
+                    <textarea class="form-control" 
+                        id="contactMsg" rows="3" maxlength="2000"></textarea>
+                </div>
+
+                <button class="btn btn-primary btn-lg" type="submit">
+                    <?=$strContact5?>
+                </button>
+            </form>
         </div>
 
-
-        <footer class="py-3 border-top"><?=$webComp->getFooter()?></footer>
+        <footer class="py-3 border-top fixed-bottom"><?=$webComp->getFooter()?></footer>
 
         <script 
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 

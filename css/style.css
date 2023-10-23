@@ -78,6 +78,14 @@ footer.customFooter {
     max-height: 100px;
 }
 
+/*contact*/
+.form-group {
+    margin-bottom: 1rem;
+}
+.contactForm input, .contactForm textarea {
+    max-width: 500px;
+} 
+
 /*tablet*/
 @media only screen and (min-width: 600px) {
     /*prod-tablet*/
