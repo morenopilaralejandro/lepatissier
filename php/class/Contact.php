@@ -43,14 +43,15 @@ class Contact {
         string $contactEmail, string $contactMsg, string $contactDate, 
         string $cntcStateId): bool {
 
-        $sql = "insert into contact (contact_name, contact_email, contact_msg) 
+        $sql = "insert into contact (contact_name, contact_email, contact_msg, 
+            contact_date, cntcstate_id) 
             values (?, ?, ?, now(), ?);";
 
         $con = new DbConnection();
         $link = $con->getConnection();
 
         $stmt = $link->prepare($sql);
-        $stmt->bind_param("sss", $contactName, $contactEmail, 
+        $stmt->bind_param("sssi", $contactName, $contactEmail, 
             $contactMsg, $cntcStateId);
         return $stmt->execute();
     }

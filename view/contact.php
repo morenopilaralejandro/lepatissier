@@ -9,6 +9,29 @@
     $path = $webComp->getPath();
     include __DIR__ . "/{$path}/php/lang/{$langCode}.php";
 
+
+
+    if(isset($_POST['contactSubmit'])) {
+        if(isset($_POST['contactName'])) { 
+            $contactName = $_POST['contactName'];
+        }
+        if(isset($_POST['contactEmail'])) { 
+            $contactEmail = $_POST['contactEmail'];
+        }
+        if(isset($_POST['contactMsg'])) { 
+            $contactMsg = $_POST['contactMsg'];
+        }
+        
+        $isValid = $man->validateContactFrm(
+            $contactName, 
+            $contactEmail, 
+            $contactMsg);
+        if($isValid) {
+            $contactObj = Contact::factory();
+            $isInserted = $contactObj->insert(
+                -1, $contactName, $contactEmail, $contactMsg, "", 1);
+        }
+    }
 ?>
 <!doctype html>
 <html lang="<?=$langCode?>">
@@ -46,23 +69,25 @@
                 enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="contactName"><?=$strContact2?></label>
-                    <input type="text" class="form-control" 
-                        id="contactName" maxlength="32">
+                    <input type="text" class="form-control"  required
+                        id="contactName" name="contactName" maxlength="32">
                 </div>
 
                 <div class="form-group">
                     <label for="contactEmail"><?=$strContact3?></label>
-                    <input type="email" class="form-control" 
-                        id="contactEmail" maxlength="32">
+                    <input type="email" class="form-control" required
+                        id="contactEmail" name="contactEmail" maxlength="32">
                 </div>
 
                 <div class="form-group">
                     <label for="contactMsg"><?=$strContact4?></label>
-                    <textarea class="form-control" 
-                        id="contactMsg" rows="3" maxlength="2000"></textarea>
+                    <textarea class="form-control" required
+                        id="contactMsg" rows="3" name="contactMsg" 
+                        maxlength="2000"></textarea>
                 </div>
 
-                <button class="btn btn-primary btn-lg" type="submit">
+                <button class="btn btn-primary btn-lg" type="submit"
+                    id="contactSubmit" rows="3" name="contactSubmit">
                     <?=$strContact5?>
                 </button>
             </form>

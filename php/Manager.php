@@ -3,6 +3,20 @@ class Manager {
     private string $langCode;
 
     //functions
+    public function validateContactFrm(string $contactName, 
+        string $contactEmail, string $contactMsg): bool {
+
+        if(empty($contactName) || strlen($contactName)>32) {
+            return false;
+        }
+        if(empty($contactName) || strlen($contactName)>32) {
+            return false;
+        }
+        if(empty($contactName) || strlen($contactName)>2000) {
+            return false;
+        }
+        return true;
+    }
 
     //constructor
     public function __construct() {
