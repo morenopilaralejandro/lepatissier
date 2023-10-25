@@ -1,1 +1,1 @@
-WIP. Website for patisserie commerce. HTML5, CSS3, Bootstrap, PHP. MySQL mysqli 
+Template for patisserie commerce. HTML5, CSS3, Bootstrap, PHP. It connets to a MySQL database using mysqli. 
