@@ -10,7 +10,10 @@
     include __DIR__ . "/{$path}/php/lang/{$langCode}.php";
 
 
-
+    $showToast = false;
+    $contactName = "";
+    $contactEmail = "";
+    $contactMsg = ""; 
     if(isset($_POST['contactSubmit'])) {
         if(isset($_POST['contactName'])) { 
             $contactName = $_POST['contactName'];
@@ -30,6 +33,9 @@
             $contactObj = Contact::factory();
             $isInserted = $contactObj->insert(
                 -1, $contactName, $contactEmail, $contactMsg, "", 1);
+            if($isInserted) {
+                $showToast = true;
+            }
         }
     }
 ?>
@@ -63,7 +69,7 @@
             <?=$webComp->getHeader()?>
         </header>
 
-        <div class="container mb-3">
+        <div class="container mb-3 contact">
             <h1><?=$strContact1?></h1>
             <form class="contactForm" action="#" method="post" 
                 enctype="multipart/form-data">
@@ -91,6 +97,11 @@
                     <?=$strContact5?>
                 </button>
             </form>
+            <?php
+            if(true) {
+                echo $webComp->getToast($strContact6);
+            }
+            ?>
         </div>
 
         <footer class="py-3 border-top fixed-bottom"><?=$webComp->getFooter()?></footer>

@@ -105,6 +105,24 @@ class webComp {
         return $inner;
     }
 
+    public function getToast(string $msg): string {
+        include __DIR__ . $this->langFile;
+        $path = $this->path;
+        $inner = "
+        <div class='toast show' role='alert' aria-live='assertive' aria-atomic='true'>
+            <div class='toast-header'>
+                <strong class='me-auto'>{$strWebName}</strong>
+                <button type='button' class='btn-close' 
+                    data-bs-dismiss='toast' aria-label='Close'>
+                </button>
+            </div>
+            <div class='toast-body'>
+                {$msg}
+            </div>
+        </div>";
+        return $inner;
+    }
+
     //constructor
     public function __construct(bool $isIndex, string $langFile) {
         $this->isIndex = $isIndex; 
